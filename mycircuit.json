@@ -1,0 +1,95 @@
+{
+ "mainCode": "{\n}\n",
+ "signalName2Idx": {
+  "one": 0,
+  "main.a": 3,
+  "main.b": 2,
+  "main.out": 1
+ },
+ "components": [
+  {
+   "name": "main",
+   "params": {},
+   "template": "NAND",
+   "inputSignals": 2
+  }
+ ],
+ "componentName2Idx": {
+  "main": 0
+ },
+ "signals": [
+  {
+   "names": [
+    "one"
+   ],
+   "triggerComponents": []
+  },
+  {
+   "names": [
+    "main.out"
+   ],
+   "triggerComponents": []
+  },
+  {
+   "names": [
+    "main.b"
+   ],
+   "triggerComponents": [
+    0
+   ]
+  },
+  {
+   "names": [
+    "main.a"
+   ],
+   "triggerComponents": [
+    0
+   ]
+  }
+ ],
+ "constraints": [
+  [
+   {
+    "3": "1"
+   },
+   {
+    "2": "1"
+   },
+   {
+    "0": "1",
+    "1": "21888242871839275222246405745257275088548364400416034343698204186575808495616"
+   }
+  ],
+  [
+   {
+    "3": "1"
+   },
+   {
+    "0": "21888242871839275222246405745257275088548364400416034343698204186575808495616",
+    "3": "1"
+   },
+   {}
+  ],
+  [
+   {
+    "2": "1"
+   },
+   {
+    "0": "21888242871839275222246405745257275088548364400416034343698204186575808495616",
+    "2": "1"
+   },
+   {}
+  ]
+ ],
+ "templates": {
+  "NAND": "function(ctx) {\n    ctx.setSignal(\"out\", [], bigInt(\"1\").add(__P__).sub(bigInt(bigInt(ctx.getSignal(\"a\", [])).mul(bigInt(ctx.getSignal(\"b\", []))).mod(__P__))).mod(__P__));\n    ctx.assert(ctx.getSignal(\"out\", []), bigInt(\"1\").add(__P__).sub(bigInt(bigInt(ctx.getSignal(\"a\", [])).mul(bigInt(ctx.getSignal(\"b\", []))).mod(__P__))).mod(__P__));\n    ctx.assert(bigInt(ctx.getSignal(\"a\", [])).mul(bigInt(bigInt(ctx.getSignal(\"a\", [])).add(__P__).sub(bigInt(\"1\")).mod(__P__))).mod(__P__), \"0\");\n    ctx.assert(bigInt(ctx.getSignal(\"b\", [])).mul(bigInt(bigInt(ctx.getSignal(\"b\", [])).add(__P__).sub(bigInt(\"1\")).mod(__P__))).mod(__P__), \"0\");\n}\n"
+ },
+ "functions": {},
+ "nPrvInputs": 1,
+ "nPubInputs": 1,
+ "nInputs": 2,
+ "nOutputs": 1,
+ "nVars": 4,
+ "nConstants": 0,
+ "nSignals": 4
+}
