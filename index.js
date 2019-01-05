@@ -9,8 +9,7 @@ fs.writeFileSync("myCircuit.vk_verifier", JSON.stringify(stringifyBigInts(setup.
 setup.toxic
 
 const input = {
-    "a": 1,
-    "b": 1
+    "a": 21
 }
 const witness = circuit.calculateWitness(input);
 const vk_proof = JSON.parse(fs.readFileSync("myCircuit.vk_proof", "utf8"));
